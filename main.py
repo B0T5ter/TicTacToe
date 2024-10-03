@@ -14,6 +14,8 @@ twoPersonIconPng = pygame.transform.rotozoom(pygame.image.load('texture\\twopers
 robotIconImg = pygame.transform.rotozoom(pygame.image.load('texture\\robotIcon.png'), 0, 1/30)
 font = pygame.font.Font('Oswald-VariableFont_wght.ttf', 25)
 retDotImg = pygame.image.load("texture\\redDot.png")
+skresleniePrawoImg = pygame.image.load('texture\skresleniePrawo.png').convert_alpha()
+skreslenieLewoImg = pygame.image.load('texture\skreslenieLewo.png').convert_alpha()
 
 tryb_dwoch_graczy = True
 tura = "cross"
@@ -467,11 +469,10 @@ class Kreska:
         if self.opcja == 6:
             pygame.draw.rect(screen, (255, 0,0), pygame.Rect(245, 100, 10, 300))
         #skos
-        scaled = pygame.transform.scale(retDotImg, (432,10))
         if self.opcja == 7:
-            rotated = pygame.transform.rotate(scaled, 45)
-            new_rotated = rotated.get_rect(center = rotated.get_rect(center = (x, y)).center)
-            screen.blit(rotated, (10,110))
+            screen.blit(skresleniePrawoImg, (0,100))
+        if self.opcja == 8:
+            screen.blit(skreslenieLewoImg, (0,100))
             
 kreska = Kreska() 
 while True:
